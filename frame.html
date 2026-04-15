@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Паспорт РФ</title>
     <style>
-        /* ========== ВСЕ ВАШИ ИСХОДНЫЕ СТИЛИ (НЕ ТРОГАЛ) ========== */
+        /* ========== ВСЕ ВАШИ ИСХОДНЫЕ СТИЛИ (СОХРАНЕНЫ) ========== */
         header {
             width: 100%;
         }
@@ -212,7 +212,7 @@
             margin-left: 325px;
         }
 
-        /* ========== АДАПТИВ ДЛЯ ТЕЛЕФОНА (ТОЛЬКО РАЗМЕРЫ, БЕЗ ПОЛОМКИ СТРОК) ========== */
+        /* ========== АДАПТИВ ДЛЯ ТЕЛЕФОНА (СОХРАНЯЕМ ГОРИЗОНТАЛЬНОЕ РАСПОЛОЖЕНИЕ, НО ПРАВИМ СМЕЩЕНИЯ) ========== */
         @media (max-width: 768px) {
             /* Шапка */
             .photolog {
@@ -262,7 +262,7 @@
                 padding-bottom: 20px;
             }
 
-            /* Все отступы уменьшаем для телефона */
+            /* Уменьшаем отступы */
             .nomer {
                 margin-left: 20px;
                 font-size: 18px;
@@ -275,25 +275,23 @@
                 margin-left: 20px;
             }
 
-            /* ГЛАВНОЕ: сохраняем горизонтальное расположение строк, но убираем большие margin-right, 
-               которые сдвигали числа вправо относительно заголовков */
+            /* Строка заголовков (Пол, Дата рождения, Гражданство) — оставляем в строку, убираем лишние отступы */
             .blaack {
                 margin-left: 20px;
-                flex-wrap: wrap;
-                gap: 15px;
+                gap: 30px;
+                justify-content: flex-start;
             }
             .pol, .data, .grash {
                 margin-left: 0;
                 margin-right: 0;
             }
 
-            /* Строка значений: оставляем flex в строку, но убираем фиксированные отступы справа,
-               чтобы текст не уезжал правее заголовков */
+            /* Строка значений (Женский, 26.02.2008, РОССИЯ) — оставляем в строку, но РОССИЯ должна быть правее */
             .blaack1 {
                 margin-left: 0;
-                gap: 20px;
-                flex-wrap: wrap;
                 justify-content: flex-start;
+                gap: 30px;
+                flex-wrap: wrap;
             }
             .men {
                 margin-left: 20px;
@@ -301,18 +299,18 @@
             }
             .data1 {
                 margin-right: 0;
-                margin-left: 0;
             }
             .strana {
                 margin-right: 0;
-                margin-left: 0;
+                /* Добавляем отступ слева, чтобы РОССИЯ была правее, как на десктопе */
+                margin-left: 30px;
             }
 
-            /* Блок с датой выдачи и кодом подразделения */
+            /* Строка заголовков (Дата выдачи, Код подразделения) */
             .blaack3 {
                 margin-left: 20px;
-                gap: 20px;
-                flex-wrap: wrap;
+                gap: 40px;
+                justify-content: flex-start;
             }
             .datavid {
                 margin-left: 0;
@@ -321,12 +319,12 @@
                 margin-right: 0;
             }
 
-            /* Строка значений (дата и код) — горизонтально, но без сдвига вправо */
+            /* Строка значений (03.03.2022, 780-012) — 780-012 должно быть правее */
             .blaack4 {
                 margin-left: 0;
-                gap: 20px;
-                flex-wrap: wrap;
                 justify-content: flex-start;
+                gap: 40px;
+                flex-wrap: wrap;
             }
             .dataaa {
                 margin-left: 20px;
@@ -334,7 +332,8 @@
             }
             .kod1 {
                 margin-right: 0;
-                margin-left: 0;
+                /* Добавляем отступ слева, чтобы 780-012 был правее, под кодом подразделения */
+                margin-left: 40px;
             }
 
             /* Блок загрузки файла */
@@ -361,7 +360,6 @@
                 margin-bottom: 20px;
             }
 
-            /* Горизонтальная линия */
             .hr1 {
                 width: 90%;
                 margin-left: auto;
@@ -369,7 +367,7 @@
             }
         }
 
-        /* Очень маленькие телефоны */
+        /* Очень маленькие телефоны — чуть уменьшаем отступы */
         @media (max-width: 480px) {
             .photolog {
                 width: 100px;
@@ -404,16 +402,29 @@
             }
             .blaack {
                 margin-left: 15px;
-                font-size: 14px;
+                gap: 20px;
             }
             .men {
                 margin-left: 15px;
             }
-            .blaack1 {
-                gap: 12px;
-            }
             .dataaa {
                 margin-left: 15px;
+            }
+            .blaack1 {
+                gap: 20px;
+            }
+            .strana {
+                margin-left: 20px;
+            }
+            .blaack3 {
+                margin-left: 15px;
+                gap: 25px;
+            }
+            .blaack4 {
+                gap: 25px;
+            }
+            .kod1 {
+                margin-left: 25px;
             }
             .main6 {
                 width: calc(100% - 30px);
