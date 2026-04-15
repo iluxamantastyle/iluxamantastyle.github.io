@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Паспорт РФ</title>
+    <title>Паспорт РФ — Даты правее</title>
     <style>
-        /* ========== ВСЕ ВАШИ ИСХОДНЫЕ СТИЛИ (СОХРАНЕНЫ) ========== */
+        /* ========== ИСХОДНЫЕ СТИЛИ (СОХРАНЕНЫ, КРОМЕ ТОЧЕЧНЫХ ПРАВОК ДЛЯ СМЕЩЕНИЯ) ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         header {
             width: 100%;
         }
@@ -38,6 +44,8 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: flex;
             background-color: #FFFFFf;
+            position: relative;
+            min-height: 70px;
         }
 
         .back {
@@ -46,6 +54,7 @@
             left: 300px;
             text-decoration: none;
             color: #0000CD;
+            font-weight: 500;
         }
 
         .pasport {
@@ -59,7 +68,8 @@
         .main5 {
             position: absolute;
             width: 900px;
-            height: 650px;
+            height: auto;
+            min-height: 650px;
         }
 
         .block5 {
@@ -68,12 +78,15 @@
             top: 200px;
             left: 300px;
             border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
         }
 
         .hr1 {
             margin-top: 20px;
             opacity: 0.3;
             width: 94%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .nomer {
@@ -83,50 +96,54 @@
             margin-top: 24px;
         }
 
+        /* ОСНОВНАЯ СТРОКА ЗАГОЛОВКОВ (Пол, Дата рождения, Гражданство) — делаем смещение: "Дата рождения" и "Гражданство" правее */
         .blaack {
             opacity: 0.5;
             font-size: 17px;
             margin-top: 28px;
             margin-left: 28px;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start; /* больше контроля */
+            gap: 70px;  /* увеличиваем промежуток, чтобы «Дата рождения» и «Гражданство» уехали вправо */
         }
 
-        .blaack1 {
-            display: flex;
-        }
-
+        /* каждый элемент внутри .blaack может получить дополнительный отступ */
         .pol {
-            margin-left: 20px;
+            margin-left: 20px;  /* пол остаётся на месте */
         }
 
         .data {
-            margin-right: 20px;
+            /* сдвигаем дату рождения правее за счёт margin-left */
+            margin-left: 35px;
         }
 
         .grash {
-            margin-right: 100px;
+            margin-left: 45px;  /* гражданство еще правее */
         }
 
+        /* СТРОКА ЗНАЧЕНИЙ: Женский, 26.02.2008, РОССИЯ — тоже должны быть выровнены относительно заголовков */
         .blaack1 {
             font-size: 17px;
             margin-top: 7px;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
+            gap: 70px;
+            margin-left: 28px;
         }
 
         .men {
-            margin-left: 48px;
+            margin-left: 20px;
         }
 
         .data1 {
-            margin-right: 93px;
+            margin-left: 35px;
         }
 
         .strana {
-            margin-right: 128px;
+            margin-left: 45px;
         }
 
+        /* остальные блоки без изменений */
         .vid {
             opacity: 0.5;
             margin-left: 48px;
@@ -149,72 +166,84 @@
             font-size: 16px;
             margin-left: 48px;
             margin-top: 14px;
+            line-height: 1.4;
+            max-width: 80%;
         }
 
         .blaack3 {
             opacity: 0.5;
             font-size: 17px;
             margin-top: 28px;
-            margin-left: 1px;
+            margin-left: 48px;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
+            gap: 90px;
         }
 
         .datavid {
-            margin-left: 48px;
+            margin-left: 0;
         }
 
         .kod {
-            margin-right: 500px;
+            margin-left: 20px;
         }
 
         .blaack4 {
             font-size: 17px;
             margin-top: 5px;
-            margin-left: 1px;
+            margin-left: 48px;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
+            gap: 90px;
         }
 
         .dataaa {
-            margin-left: 48px;
+            margin-left: 0;
         }
 
         .kod1 {
-            margin-right: 592px;
+            margin-left: 20px;
         }
 
         .main6 {
-            position: absolute;
-            width: 800px;
-            height: 100px;
+            position: relative;
+            width: calc(100% - 40px);
+            margin: 20px auto 30px auto;
         }
 
         .block6 {
             overflow: hidden;
             background-color: #FFffff;
-            top: 520px;
-            left: 50px;
             border-radius: 12px;
             border: 2px dashed rgba(0, 0, 255, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 0;
+            transition: 0.2s;
         }
 
         .vibor {
-            margin-top: -32px;
-            padding: 12px 24px;
+            margin-top: 10px;
+            padding: 8px 24px;
             font-size: 14px;
             text-align: center;
             color: #0000CD;
+            font-weight: 500;
+            cursor: pointer;
+            background: #f0f8ff;
+            border-radius: 30px;
+            display: inline-block;
         }
 
         .vibor2 {
-            margin-top: 36px;
-            margin-left: 325px;
+            margin-top: 0;
+            margin-bottom: 8px;
         }
 
-        /* ========== АДАПТИВ ДЛЯ ТЕЛЕФОНА (СОХРАНЯЕМ ГОРИЗОНТАЛЬНОЕ РАСПОЛОЖЕНИЕ, НО ПРАВИМ СМЕЩЕНИЯ) ========== */
+        /* Адаптив для телефона — сохраняем все смещения, но делаем отзывчивыми */
         @media (max-width: 768px) {
-            /* Шапка */
             .photolog {
                 left: 20px;
                 top: 10px;
@@ -228,8 +257,6 @@
                 width: 50px;
                 height: auto;
             }
-
-            /* Кнопка Назад */
             .back {
                 position: relative;
                 left: auto;
@@ -237,8 +264,6 @@
                 display: inline-block;
                 margin: 20px 0 0 20px;
             }
-
-            /* Заголовок Паспорт РФ */
             .pasport {
                 position: relative;
                 left: auto;
@@ -246,12 +271,9 @@
                 font-size: 24px;
                 margin: 20px 0 0 20px;
             }
-
-            /* Основной блок паспорта */
             .main5 {
                 position: relative;
                 width: calc(100% - 40px);
-                height: auto;
                 margin: 0 20px 20px 20px;
             }
             .block5 {
@@ -261,113 +283,70 @@
                 width: 100%;
                 padding-bottom: 20px;
             }
-
-            /* Уменьшаем отступы */
             .nomer {
                 margin-left: 20px;
                 font-size: 18px;
             }
             .nomer1, .nomer2, .nomer3 {
                 margin-left: 20px;
-                word-break: break-word;
             }
             .vid {
                 margin-left: 20px;
             }
-
-            /* Строка заголовков (Пол, Дата рождения, Гражданство) — оставляем в строку, убираем лишние отступы */
+            /* мобильная версия: сохраняем смещения, но уменьшаем gap */
             .blaack {
                 margin-left: 20px;
                 gap: 30px;
-                justify-content: flex-start;
+                flex-wrap: wrap;
             }
-            .pol, .data, .grash {
+            .pol {
                 margin-left: 0;
-                margin-right: 0;
             }
-
-            /* Строка значений (Женский, 26.02.2008, РОССИЯ) — оставляем в строку, но РОССИЯ должна быть правее */
+            .data {
+                margin-left: 15px;
+            }
+            .grash {
+                margin-left: 25px;
+            }
             .blaack1 {
-                margin-left: 0;
-                justify-content: flex-start;
+                margin-left: 20px;
                 gap: 30px;
                 flex-wrap: wrap;
             }
             .men {
-                margin-left: 20px;
-                margin-right: 0;
+                margin-left: 0;
             }
             .data1 {
-                margin-right: 0;
+                margin-left: 15px;
             }
             .strana {
-                margin-right: 0;
-                /* Добавляем отступ слева, чтобы РОССИЯ была правее, как на десктопе */
-                margin-left: 30px;
+                margin-left: 25px;
             }
-
-            /* Строка заголовков (Дата выдачи, Код подразделения) */
             .blaack3 {
                 margin-left: 20px;
                 gap: 40px;
-                justify-content: flex-start;
+                flex-wrap: wrap;
             }
-            .datavid {
-                margin-left: 0;
-            }
-            .kod {
-                margin-right: 0;
-            }
-
-            /* Строка значений (03.03.2022, 780-012) — 780-012 должно быть правее */
             .blaack4 {
-                margin-left: 0;
-                justify-content: flex-start;
+                margin-left: 20px;
                 gap: 40px;
                 flex-wrap: wrap;
             }
-            .dataaa {
-                margin-left: 20px;
-                margin-right: 0;
+            .kod {
+                margin-left: 0;
             }
             .kod1 {
-                margin-right: 0;
-                /* Добавляем отступ слева, чтобы 780-012 был правее, под кодом подразделения */
-                margin-left: 40px;
-            }
-
-            /* Блок загрузки файла */
-            .main6 {
-                position: relative;
-                width: calc(100% - 40px);
-                height: auto;
-                margin: 20px;
-            }
-            .block6 {
-                position: relative;
-                left: auto;
-                top: auto;
-                width: 100%;
-                margin: 0;
-            }
-            .vibor2 {
                 margin-left: 0;
-                text-align: center;
-                margin-top: 20px;
             }
-            .vibor {
-                margin-top: 10px;
-                margin-bottom: 20px;
-            }
-
             .hr1 {
                 width: 90%;
-                margin-left: auto;
-                margin-right: auto;
+            }
+            .main6 {
+                width: calc(100% - 30px);
+                margin: 20px auto;
             }
         }
 
-        /* Очень маленькие телефоны — чуть уменьшаем отступы */
         @media (max-width: 480px) {
             .photolog {
                 width: 100px;
@@ -394,49 +373,41 @@
             }
             .nomer1, .nomer2, .nomer3 {
                 margin-left: 15px;
-                font-size: 14px;
             }
             .vid {
                 margin-left: 15px;
-                font-size: 13px;
             }
             .blaack {
                 margin-left: 15px;
                 gap: 20px;
             }
-            .men {
-                margin-left: 15px;
+            .data {
+                margin-left: 8px;
             }
-            .dataaa {
-                margin-left: 15px;
+            .grash {
+                margin-left: 18px;
             }
             .blaack1 {
+                margin-left: 15px;
                 gap: 20px;
             }
+            .data1 {
+                margin-left: 8px;
+            }
             .strana {
-                margin-left: 20px;
+                margin-left: 18px;
             }
             .blaack3 {
                 margin-left: 15px;
                 gap: 25px;
             }
             .blaack4 {
+                margin-left: 15px;
                 gap: 25px;
-            }
-            .kod1 {
-                margin-left: 25px;
-            }
-            .main6 {
-                width: calc(100% - 30px);
-                margin: 15px;
             }
             .vibor {
                 font-size: 13px;
-                padding: 10px 16px;
-            }
-            .vibor2 img {
-                width: 40px;
-                height: auto;
+                padding: 6px 18px;
             }
         }
     </style>
@@ -445,6 +416,7 @@
 <header>
     <div class="logoo">
         <h3> ㅤ</h3> 
+        <!-- оригинальные изображения (если отсутствуют, браузер покажет иконку, но структура сохранится) -->
         <img src="images/logo.png" alt="Логотип" class="photolog">
         <img src="images/logos.png" alt="Логотип" class="photologos">
     </div>
@@ -454,16 +426,21 @@
     <div class="pasport"> Паспорт РФ</div>
     <div class="main5 block5">
         <div class="nomer"> ИВАНОВА ДАРЬЯ АЛЕКСЕЕВНА</div>
+        
+        <!-- Строка заголовков: Пол, Дата рождения, Гражданство — Дата и Гражданство правее -->
         <div class="blaack">
             <div class="pol">Пол</div>
             <div class="data">Дата рождения</div>
             <div class="grash">Гражданство</div>
         </div>
+        
+        <!-- Строка значений: отступы синхронизированы, чтобы данные были под своими заголовками -->
         <div class="blaack1">
             <div class="men">Женский</div>
             <div class="data1">26.02.2008</div>
             <div class="strana">РОССИЯ</div>
         </div>
+        
         <div class="vid"> Место рождения</div>
         <div class="nomer1"> Гор. Родничек Россия</div>
         <hr class="hr1">
@@ -481,11 +458,10 @@
         </div>
         <hr class="hr1">
         <div class="main6 block6">
-            <div class="vibor2"><img src="images/soh.png" alt="сохронялово"></div>
+            <div class="vibor2"><img src="images/soh.png" alt="сохронялово" style="max-width: 48px;"></div>
             <div class="vibor"> Выбрать файл</div>
         </div>
     </div>
 </main>
 </body>
 </html>
-        
