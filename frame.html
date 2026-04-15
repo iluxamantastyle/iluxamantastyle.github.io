@@ -1,448 +1,559 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-<meta charset = "UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-<style>
-/* ========== ВСЕ ВАШИ ИСХОДНЫЕ СТИЛИ (НЕ ТРОГАЛ) ========== */
-header {
-width: 100%;
-   
-}
-body{
- margin: 0;  
-    padding: 0;
-background-color:  #eef7ff;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Паспорт РФ</title>
+    <style>
+        /* ========== ИСХОДНЫЕ СТИЛИ (СОХРАНЕНЫ, ДОБАВЛЕНЫ ТОЛЬКО ПРАВКИ ДЛЯ ВЫРАВНИВАНИЯ) ========== */
+        header {
+            width: 100%;
+        }
 
-font-family: San Francisco, sans-serif;
-}
-.photologos{
-position: absolute;
-left: 1500px;
-top: 10px;
-width: 70px;
-height: 50px;
-}
-.photolog{
-position: absolute;
-left: 300px;
-top: 20px;
-width: 160px;
-height: 30px;
-}
-.logoo {
-border-bottom: 1px solid #FFFFFF;
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #eef7ff;
+            font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+        }
 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-display: flex;
+        .photologos {
+            position: absolute;
+            left: 1500px;
+            top: 10px;
+            width: 70px;
+            height: 50px;
+        }
 
-background-color: #FFFFFf;
-}
-.back{
-position: absolute;
-top: 98px;
-left: 300px;
- text-decoration: none;
-   color: #0000CD;
-}
-.pasport{
-position: absolute;
-top: 145px;
-left: 300px;
-font-size: 28px;
-font-weight: bold;
-}
-.main5{
-position: absolute;
-width: 900px;
-height: 650px;
-}
-.block5{
-overflow: hidden;
-background-color: #FFffff;
-top: 200px;
-left: 300px;
-border-radius: 20px;
-}
-.hr1 {
-margin-top: 20px;
-opacity: 0.3;
-width: 94%;
-}
-.nomer{
- font-weight: bold;
-font-size: 20px;
-margin-left: 48px;
-margin-top: 24px;
-}
-.blaack{
-opacity: 0.5;
-font-size: 17px;
-margin-top: 28px;
-margin-left: 28px;
-display: flex;
-justify-content: space-between;
-}
-.blaack1{
-display: flex;
-}
-.pol{
-margin-left: 20px;
-}
-.data{
-margin-right: 20px;
-}
-.grash{
-margin-right: 100px;
-}
-.blaack1{
-font-size: 17px;
-margin-top: 7px;
-display: flex;
-justify-content: space-between;
-}
-.men{
-margin-left: 48px;
-}
-.data1{
-margin-right: 223px;
-}
-.strana{
-margin-right: 200px;
-}
-.vid{
-opacity: 0.5;
-margin-left: 48px;
-margin-top: 35px;
-}
-.nomer1{
-margin-left: 48px;
-margin-top: 14px;
-}
-.nomer2{
- font-weight: bold;
-font-size: 20px;
-margin-left: 48px;
-margin-top: 14px;
-}
-.nomer3{
+        .photolog {
+            position: absolute;
+            left: 300px;
+            top: 20px;
+            width: 160px;
+            height: 30px;
+        }
 
-font-size: 16px;
-margin-left: 48px;
-margin-top: 14px;
-}
-.blaack3{
-opacity: 0.5;
-font-size: 17px;
-margin-top: 28px;
-margin-left: 1px;
-display: flex;
-justify-content: space-between;
-}
-.datavid{
-margin-left: 48px;
-}
-.kod{
-margin-right: 500px;
-}
-.blaack4{
-font-size: 17px;
-margin-top: 5px;
-margin-left: 1px;
-display: flex;
-justify-content: space-between;
-}
-.dataaa{
-margin-left: 48px;
-}
-.kod1{
-margin-right: 592px;
-}
-.main6{
-position: absolute;
-width: 800px;
-height: 100px;
-}
-.block6{
-overflow: hidden;
-background-color: #FFffff;
-top: 520px;
-left: 50px;
-border-radius: 12px;
-border: 2px dashed rgba(0, 0, 255, 0.5);
+        .logoo {
+            border-bottom: 1px solid #FFFFFF;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            background-color: #FFFFFf;
+            position: relative;
+        }
 
-}
- .vibor {
-margin-top:-32px;
+        .back {
+            position: absolute;
+            top: 98px;
+            left: 300px;
+            text-decoration: none;
+            color: #0000CD;
+        }
+
+        .pasport {
+            position: absolute;
+            top: 145px;
+            left: 300px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .main5 {
+            position: absolute;
+            width: 900px;
+            height: 650px;
+        }
+
+        .block5 {
+            overflow: hidden;
+            background-color: #FFffff;
+            top: 200px;
+            left: 300px;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .hr1 {
+            margin-top: 20px;
+            opacity: 0.3;
+            width: 94%;
+        }
+
+        .nomer {
+            font-weight: bold;
+            font-size: 20px;
+            margin-left: 48px;
+            margin-top: 24px;
+        }
+
+        .blaack {
+            opacity: 0.5;
+            font-size: 17px;
+            margin-top: 28px;
+            margin-left: 28px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .blaack1 {
+            display: flex;
+        }
+
+        .pol {
+            margin-left: 20px;
+        }
+
+        .data {
+            margin-right: 20px;
+        }
+
+        .grash {
+            margin-right: 100px;
+        }
+
+        .blaack1 {
+            font-size: 17px;
+            margin-top: 7px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .men {
+            margin-left: 48px;
+        }
+
+        .data1 {
+            margin-right: 93px;
+        }
+
+        .strana {
+            margin-right: 128px;
+        }
+
+        .vid {
+            opacity: 0.5;
+            margin-left: 48px;
+            margin-top: 35px;
+        }
+
+        .nomer1 {
+            margin-left: 48px;
+            margin-top: 14px;
+        }
+
+        .nomer2 {
+            font-weight: bold;
+            font-size: 20px;
+            margin-left: 48px;
+            margin-top: 14px;
+        }
+
+        .nomer3 {
+            font-size: 16px;
+            margin-left: 48px;
+            margin-top: 14px;
+        }
+
+        .blaack3 {
+            opacity: 0.5;
+            font-size: 17px;
+            margin-top: 28px;
+            margin-left: 1px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .datavid {
+            margin-left: 48px;
+        }
+
+        .kod {
+            margin-right: 500px;
+        }
+
+        .blaack4 {
+            font-size: 17px;
+            margin-top: 5px;
+            margin-left: 1px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .dataaa {
+            margin-left: 48px;
+        }
+
+        .kod1 {
+            margin-right: 592px;
+        }
+
+        .main6 {
+            position: absolute;
+            width: 800px;
+            height: 100px;
+        }
+
+        .block6 {
+            overflow: hidden;
+            background-color: #FFffff;
+            top: 520px;
+            left: 50px;
+            border-radius: 12px;
+            border: 2px dashed rgba(0, 0, 255, 0.5);
+        }
+
+        .vibor {
+            margin-top: -32px;
             padding: 12px 24px;
             font-size: 14px;
-           text-align: center;
+            text-align: center;
             color: #0000CD;
-            
-           
-        }
- .vibor2 {
-margin-top:36px;
-  margin-left:325px;          
-           
-           
-            
-
-           
         }
 
-/* ========== ДОБАВЛЕН ТОЛЬКО АДАПТИВ ДЛЯ ТЕЛЕФОНА ========== */
-@media (max-width: 768px) {
-    /* Шапка */
-    .photolog {
-        left: 20px;
-        top: 10px;
-        width: 120px;
-        height: auto;
-    }
-    .photologos {
-        left: auto;
-        right: 20px;
-        top: 10px;
-        width: 50px;
-        height: auto;
-    }
-    
-    /* Кнопка Назад */
-    .back {
-        position: relative;
-        left: auto;
-        top: auto;
-        display: inline-block;
-        margin: 20px 0 0 20px;
-    }
-    
-    /* Заголовок Паспорт РФ */
-    .pasport {
-        position: relative;
-        left: auto;
-        top: auto;
-        font-size: 24px;
-        margin: 20px 0 0 20px;
-    }
-    
-    /* Основной блок паспорта */
-    .main5 {
-        position: relative;
-        width: calc(100% - 40px);
-        height: auto;
-        margin: 0 20px 20px 20px;
-    }
-    .block5 {
-        position: relative;
-        left: auto;
-        top: auto;
-        width: 100%;
-        padding-bottom: 20px;
-    }
-    
-    /* Все отступы уменьшаем для телефона */
-    .nomer {
-        margin-left: 20px;
-        font-size: 18px;
-    }
-    .nomer1, .nomer2, .nomer3 {
-        margin-left: 20px;
-        word-break: break-word;
-    }
-    .vid {
-        margin-left: 20px;
-    }
-    .blaack {
-        margin-left: 20px;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-    .blaack1 {
-        margin-left: 0;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-    .men {
-        margin-left: 20px;
-    }
-    .data1 {
-        margin-right: 0;
-    }
-    .strana {
-        margin-right: 0;
-    }
-    .pol, .data, .grash {
-        margin-left: 0;
-        margin-right: 20px;
-    }
-    
-    /* Блок с датой выдачи и кодом */
-    .blaack3 {
-        flex-wrap: wrap;
-        margin-left: 20px;
-        gap: 10px;
-    }
-    .datavid {
-        margin-left: 0;
-    }
-    .kod {
-        margin-right: 0;
-    }
-    .blaack4 {
-        flex-wrap: wrap;
-        margin-left: 20px;
-        gap: 10px;
-    }
-    .dataaa {
-        margin-left: 0;
-    }
-    .kod1 {
-        margin-right: 0;
-    }
-    
-    /* Блок загрузки файла */
-    .main6 {
-        position: relative;
-        width: calc(100% - 40px);
-        height: auto;
-        margin: 20px;
-    }
-    .block6 {
-        position: relative;
-        left: auto;
-        top: auto;
-        width: 100%;
-        margin: 0;
-    }
-    .vibor2 {
-        margin-left: 0;
-        text-align: center;
-        margin-top: 20px;
-    }
-    .vibor {
-        margin-top: 10px;
-        margin-bottom: 20px;
-    }
-    
-    /* Горизонтальная линия */
-    .hr1 {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
+        .vibor2 {
+            margin-top: 36px;
+            margin-left: 325px;
+        }
 
-/* Очень маленькие телефоны */
-@media (max-width: 480px) {
-    .photolog {
-        width: 100px;
-    }
-    .photologos {
-        width: 40px;
-        right: 15px;
-    }
-    .back {
-        margin: 15px 0 0 15px;
-        font-size: 14px;
-    }
-    .pasport {
-        font-size: 22px;
-        margin: 15px 0 0 15px;
-    }
-    .main5 {
-        width: calc(100% - 30px);
-        margin: 0 15px 15px 15px;
-    }
-    .nomer {
-        margin-left: 15px;
-        font-size: 16px;
-    }
-    .nomer1, .nomer2, .nomer3 {
-        margin-left: 15px;
-        font-size: 14px;
-    }
-    .vid {
-        margin-left: 15px;
-        font-size: 13px;
-    }
-    .blaack {
-        margin-left: 15px;
-        font-size: 14px;
-    }
-    .men {
-        margin-left: 15px;
-    }
-    .blaack1 {
-        font-size: 14px;
-    }
-    .blaack3, .blaack4 {
-        margin-left: 15px;
-        font-size: 14px;
-    }
-    .main6 {
-        width: calc(100% - 30px);
-        margin: 15px;
-    }
-    .vibor {
-        font-size: 13px;
-        padding: 10px 16px;
-    }
-    .vibor2 img {
-        width: 40px;
-        height: auto;
-    }
-}
-</style>
+        /* ========== АДАПТИВ ДЛЯ ПЛАНШЕТОВ И ТЕЛЕФОНОВ ========== */
+        @media (max-width: 768px) {
+            /* Шапка */
+            .photolog {
+                left: 20px;
+                top: 10px;
+                width: 120px;
+                height: auto;
+            }
+            .photologos {
+                left: auto;
+                right: 20px;
+                top: 10px;
+                width: 50px;
+                height: auto;
+            }
+
+            /* Кнопка Назад */
+            .back {
+                position: relative;
+                left: auto;
+                top: auto;
+                display: inline-block;
+                margin: 20px 0 0 20px;
+            }
+
+            /* Заголовок Паспорт РФ */
+            .pasport {
+                position: relative;
+                left: auto;
+                top: auto;
+                font-size: 24px;
+                margin: 20px 0 0 20px;
+            }
+
+            /* Основной блок паспорта */
+            .main5 {
+                position: relative;
+                width: calc(100% - 40px);
+                height: auto;
+                margin: 0 20px 20px 20px;
+            }
+            .block5 {
+                position: relative;
+                left: auto;
+                top: auto;
+                width: 100%;
+                padding-bottom: 20px;
+            }
+
+            /* Все отступы уменьшаем для телефона */
+            .nomer {
+                margin-left: 20px;
+                font-size: 18px;
+            }
+            .nomer1, .nomer2, .nomer3 {
+                margin-left: 20px;
+                word-break: break-word;
+            }
+            .vid {
+                margin-left: 20px;
+            }
+            .blaack {
+                margin-left: 20px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .blaack1 {
+                margin-left: 0;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .men {
+                margin-left: 20px;
+            }
+            .data1 {
+                margin-right: 0;
+            }
+            .strana {
+                margin-right: 0;
+            }
+            .pol, .data, .grash {
+                margin-left: 0;
+                margin-right: 20px;
+            }
+
+            /* Блок с датой выдачи и кодом */
+            .blaack3 {
+                flex-wrap: wrap;
+                margin-left: 20px;
+                gap: 10px;
+            }
+            .datavid {
+                margin-left: 0;
+            }
+            .kod {
+                margin-right: 0;
+            }
+            .blaack4 {
+                flex-wrap: wrap;
+                margin-left: 20px;
+                gap: 10px;
+            }
+            .dataaa {
+                margin-left: 0;
+            }
+            .kod1 {
+                margin-right: 0;
+            }
+
+            /* Блок загрузки файла */
+            .main6 {
+                position: relative;
+                width: calc(100% - 40px);
+                height: auto;
+                margin: 20px;
+            }
+            .block6 {
+                position: relative;
+                left: auto;
+                top: auto;
+                width: 100%;
+                margin: 0;
+            }
+            .vibor2 {
+                margin-left: 0;
+                text-align: center;
+                margin-top: 20px;
+            }
+            .vibor {
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+
+            /* Горизонтальная линия */
+            .hr1 {
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        /* Очень маленькие телефоны */
+        @media (max-width: 480px) {
+            .photolog {
+                width: 100px;
+            }
+            .photologos {
+                width: 40px;
+                right: 15px;
+            }
+            .back {
+                margin: 15px 0 0 15px;
+                font-size: 14px;
+            }
+            .pasport {
+                font-size: 22px;
+                margin: 15px 0 0 15px;
+            }
+            .main5 {
+                width: calc(100% - 30px);
+                margin: 0 15px 15px 15px;
+            }
+            .nomer {
+                margin-left: 15px;
+                font-size: 16px;
+            }
+            .nomer1, .nomer2, .nomer3 {
+                margin-left: 15px;
+                font-size: 14px;
+            }
+            .vid {
+                margin-left: 15px;
+                font-size: 13px;
+            }
+            .blaack {
+                margin-left: 15px;
+                font-size: 14px;
+            }
+            .men {
+                margin-left: 15px;
+            }
+            .blaack1 {
+                font-size: 14px;
+            }
+            .blaack3, .blaack4 {
+                margin-left: 15px;
+                font-size: 14px;
+            }
+            .main6 {
+                width: calc(100% - 30px);
+                margin: 15px;
+            }
+            .vibor {
+                font-size: 13px;
+                padding: 10px 16px;
+            }
+            .vibor2 img {
+                width: 40px;
+                height: auto;
+            }
+        }
+
+        /* ========== ДОПОЛНИТЕЛЬНЫЕ ПРАВКИ ДЛЯ ВЫРАВНИВАНИЯ ДАННЫХ НА ТЕЛЕФОНЕ ========== */
+        /* Чтобы на мобильных устройствах значения (Женский, 26.02.2008, РОССИЯ, 780-012) 
+           не уезжали вправо, а были строго под своими заголовками — используем flex-колонку 
+           при необходимости, но сохраняем визуальную структуру.
+           Применяем к .blaack1 и .blaack4 на мобильных устройствах полное выравнивание по левому краю,
+           убираем лишние margin-right, чтобы текст не прижимался к правому краю. */
+        @media (max-width: 768px) {
+            .blaack1 {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+                margin-top: 8px;
+            }
+            .blaack1 .men,
+            .blaack1 .data1,
+            .blaack1 .strana {
+                margin-left: 20px;
+                margin-right: 0;
+            }
+            /* Также убираем избыточные отступы у родителя, чтобы значения не "плавали" */
+            .blaack1 {
+                justify-content: flex-start;
+            }
+            /* Блок с кодом подразделения — аналогично: дата и код выстраиваются вертикально,
+               но сохраняем читаемость. Но чтобы число 780-012 было под "Код подразделения", 
+               а дата под "Дата выдачи" — применяем column. */
+            .blaack4 {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+                margin-top: 8px;
+            }
+            .blaack4 .dataaa,
+            .blaack4 .kod1 {
+                margin-left: 20px;
+                margin-right: 0;
+            }
+            /* Также для строки заголовков (blaack3) тоже сделаем аккуратную колонку, чтобы подписи шли сверху вниз */
+            .blaack3 {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+                margin-left: 20px;
+            }
+            .blaack3 .datavid,
+            .blaack3 .kod {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            /* Для блока "Пол Дата рождения Гражданство" (blaack) — сохраняем ряд, но при сужении экрана 
+               если ряд ломается, то выглядит нормально, но чтобы они не разъезжались, используем flex-wrap */
+            .blaack {
+                flex-wrap: wrap;
+                gap: 16px;
+                margin-left: 20px;
+            }
+            /* Для "Серия и номер" и "Выдан" — без изменений, они и так нормально */
+        }
+
+        /* Для очень маленьких экранов корректируем отступы */
+        @media (max-width: 480px) {
+            .blaack1 .men,
+            .blaack1 .data1,
+            .blaack1 .strana {
+                margin-left: 15px;
+            }
+            .blaack4 .dataaa,
+            .blaack4 .kod1 {
+                margin-left: 15px;
+            }
+            .blaack3 {
+                margin-left: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
 <header>
-<div class = "logoo">
-<h3> ㅤ</h3> 
-<img src = "images/logo.png" alt = "Логотип" class = "photolog">
-<img src = "images/logos.png" alt = "Логотип" class = "photologos">
-</div>
+    <div class="logoo">
+        <h3> ㅤ</h3> 
+        <img src="images/logo.png" alt="Логотип" class="photolog">
+        <img src="images/logos.png" alt="Логотип" class="photologos">
+    </div>
 </header>
 <main>
-<a href = "index.html"><div class = "back">< Назад</div></a>
-<div class = "pasport"> Паспорт РФ</div>
-<div class = "main5 block5">
-<div class = "nomer"> ИВАНОВА ДАРЬЯ АЛЕКСЕЕВНА</div>
-<div class = "blaack">
-<div class="pol">Пол</div>
-<div class="data">Дата рождения</div>
-<div class="grash">Гражданство</div>
-</div>
-<div class = "blaack1">
-<div class="men">Женский</div>
-<div class="data1">26.02.2008</div>
-<div class="strana">РОССИЯ</div>
-</div>
-<div class = "vid"> Место рождения</div>
-<div class = "nomer1"> Гор. Родничек Россия</div>
-<hr class = "hr1">
-<div class = "vid"> Серия и номер паспорта</div>
-<div class = "nomer2"> 4022 109654</div>
-<div class = "vid"> Выдан</div>
-<div class = "nomer3"> ГУ МВД РОССИИ ПО Г. САНКТ-ПЕТЕРБУРГУ И ЛЕНИНГРАДСКОЙ ОБЛАСТИ</div>
-<div class = "blaack3">
-<div class="datavid">Дата выдачи</div>
-<div class="kod">Код подразделения</div>
-</div>
-<div class = "blaack4">
-<div class="dataaa">03.03.2022</div>
-<div class="kod1">780-012</div>
-</div>
-<hr class = "hr1">
-<div class = "main6 block6">
-<div class= "vibor2"><img src = "images/soh.png" alt="сохронялово"></div>
-<div class = "vibor"> Выбрать файл</div>
-</div>
-</div>
+    <a href="index.html" style="text-decoration: none;"><div class="back">< Назад</div></a>
+    <div class="pasport"> Паспорт РФ</div>
+    <div class="main5 block5">
+        <div class="nomer"> ИВАНОВА ДАРЬЯ АЛЕКСЕЕВНА</div>
+        
+        <!-- Строка подписей: Пол, Дата рождения, Гражданство -->
+        <div class="blaack">
+            <div class="pol">Пол</div>
+            <div class="data">Дата рождения</div>
+            <div class="grash">Гражданство</div>
+        </div>
+        
+        <!-- Строка значений: Женский, 26.02.2008, РОССИЯ -->
+        <div class="blaack1">
+            <div class="men">Женский</div>
+            <div class="data1">26.02.2008</div>
+            <div class="strana">РОССИЯ</div>
+        </div>
+        
+        <div class="vid"> Место рождения</div>
+        <div class="nomer1"> Гор. Родничек Россия</div>
+        
+        <hr class="hr1">
+        
+        <div class="vid"> Серия и номер паспорта</div>
+        <div class="nomer2"> 4022 109654</div>
+        
+        <div class="vid"> Выдан</div>
+        <div class="nomer3"> ГУ МВД РОССИИ ПО Г. САНКТ-ПЕТЕРБУРГУ И ЛЕНИНГРАДСКОЙ ОБЛАСТИ</div>
+        
+        <!-- Строка подписей: Дата выдачи, Код подразделения -->
+        <div class="blaack3">
+            <div class="datavid">Дата выдачи</div>
+            <div class="kod">Код подразделения</div>
+        </div>
+        
+        <!-- Строка значений: 03.03.2022, 780-012 — на мобильных устройствах теперь идут четко под соответствующими заголовками, без смещения вправо -->
+        <div class="blaack4">
+            <div class="dataaa">03.03.2022</div>
+            <div class="kod1">780-012</div>
+        </div>
+        
+        <hr class="hr1">
+        
+        <div class="main6 block6">
+            <div class="vibor2"><img src="images/soh.png" alt="сохронялово"></div>
+            <div class="vibor"> Выбрать файл</div>
+        </div>
+    </div>
 </main>
 </body>
-</html><img src = "images/logo.png" alt = "Логотип" class = "photolog">
-<img src = "images/logos.png" alt = "Логотип" class = "photologos">
-</div>
-</header>
 </html>
