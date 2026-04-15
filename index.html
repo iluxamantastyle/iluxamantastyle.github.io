@@ -1,8 +1,10 @@
 <!doctype html>
 <html>
+<head>
 <meta charset = "UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 <style>
+/* ========== ВСЕ ВАШИ ИСХОДНЫЕ СТИЛИ (НЕ ТРОГАЛ) ========== */
 header {
 width: 100%;
    
@@ -154,6 +156,122 @@ margin-top: 28px;
 margin-left: 28px;
 }
 
+/* ========== ДОБАВЛЕН ТОЛЬКО АДАПТИВ ДЛЯ ТЕЛЕФОНА ========== */
+@media (max-width: 768px) {
+    /* Шапка */
+    .photolog {
+        left: 20px;
+        top: 10px;
+        width: 120px;
+        height: auto;
+    }
+    .photologos {
+        left: auto;
+        right: 20px;
+        top: 10px;
+        width: 50px;
+        height: auto;
+    }
+    
+    /* Навигация */
+    .navi {
+        margin-left: 20px;
+        margin-top: 100px;
+        font-size: 24px;
+    }
+    .navigator {
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    .navigator ul {
+        gap: 12px;
+        padding-left: 0;
+    }
+    
+    /* Карточки - убираем абсолютное позиционирование, делаем относительным */
+    .mainn, .main2, .main3, .main4 {
+        position: relative;
+        width: calc(100% - 40px);
+        left: auto;
+        top: auto;
+        margin: 0 20px 20px 20px;
+    }
+    .block1, .block2, .block3, .adress1 {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: 100%;
+        margin: 0;
+    }
+    .block2, .block3 {
+        height: auto;
+    }
+    .main2, .main3 {
+        height: auto;
+    }
+    .adress {
+        position: relative;
+        left: auto;
+        top: auto;
+        margin: 20px 20px 0 20px;
+    }
+    .adress h1 {
+        font-size: 24px;
+    }
+    
+    /* Текст внутри карточек */
+    .nomer, .pasport {
+        margin: 20px;
+        font-size: 18px;
+    }
+    .nomer1 {
+        margin: 20px;
+        font-size: 14px;
+        word-break: break-word;
+    }
+    .vidan {
+        margin-left: 20px;
+    }
+    .copy a {
+        margin: 20px;
+        display: inline-block;
+    }
+    .hr2 {
+        width: 90%;
+    }
+}
+
+/* Очень маленькие телефоны */
+@media (max-width: 480px) {
+    .photolog {
+        width: 100px;
+    }
+    .photologos {
+        width: 40px;
+        right: 15px;
+    }
+    .navi {
+        font-size: 20px;
+        margin-left: 15px;
+    }
+    .navigator {
+        margin-left: 15px;
+    }
+    .mainn, .main2, .main3, .main4 {
+        width: calc(100% - 30px);
+        margin: 0 15px 15px 15px;
+    }
+    .adress {
+        margin: 15px 15px 0 15px;
+    }
+    .nomer, .pasport {
+        margin: 15px;
+        font-size: 16px;
+    }
+    .nomer1 {
+        margin: 15px;
+    }
+}
 </style>
 </head>
 <body>
