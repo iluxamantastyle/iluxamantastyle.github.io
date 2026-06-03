@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="style.css">
+<main class="main">
+    <div class="container">
+ <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo"> GiftBox</a>
+            
+            <nav class="nav" id="nav">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link active">Главная</a></li>
+                    <li><a href="catalog.html" class="nav__link">Каталог</a></li>
+                    <li><a href="blog.html" class="nav__link">Блог</a></li>
+                    <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__actions">
+                <button class="search-btn" aria-label="Поиск">Поиск</button>
+                <a href="#" class="cart-btn" aria-label="Корзина">
+                    Корзина <span class="cart-count" id="cart-count">0</span>
+                </a>
+                <button class="burger-btn" id="burger-btn" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+        <article class="product-detail">
+            <div class="product-detail__gallery">
+                <img src="images/biznes.jpg" alt="Набор 'Романтический вечер'" class="product-detail__main-img" id="main-img">
+               
+            </div>
+            
+            <div class="product-detail__info">
+                <h1>Набор "Корпаротивный набор Бизнес"</h1>
+                <p class="product-detail__price">2 190 ₽</p>
+                
+                <div class="product-detail__composition">
+                    <h3>Состав набора:</h3>
+                    <ul>
+                        <li> Блокнот</li>
+                        <li> Шоколад  (130 г)</li>
+                        <li> Ручка черная</li>
+                        <li> Чай-бурмалда</li>
+                        <li></li>
+                    </ul>
+                </div>
+                
+                <button class="btn btn--primary btn--lg add-to-cart" data-name="Набор 'Романтический вечер'">
+                     Добавить в корзину
+                </button>
+                
+                <!-- Вкладки -->
+                <div class="tabs" id="product-tabs">
+                    <div class="tabs__nav">
+                        <button class="tabs__btn active" data-tab="desc">Описание</button>
+                        <button class="tabs__btn" data-tab="specs">Характеристики</button>
+                        <button class="tabs__btn" data-tab="reviews">Отзывы</button>
+                    </div>
+                    <div class="tabs__content">
+                        <div class="tabs__pane active" id="desc">
+                            <p>Идеальный набор для рабочей атмосферы. Все элементы служат для работы, с помощью их вы сможете записывать номера девушек, записывать важные даты и быть всегда на чеку.</p>
+                        </div>
+                        <div class="tabs__pane" id="specs">
+                            <table class="specs-table">
+                                <tr><td>Вес набора</td><td>800 г</td></tr>
+                                <tr><td>Размер коробки</td><td>30×25×10 см</td></tr>
+                                <tr><td>Срок хранения</td><td>12 месяцев</td></tr>
+                                <tr><td>Производство</td><td>Россия</td></tr>
+                            </table>
+                        </div>
+                        <div class="tabs__pane" id="reviews">
+                            <blockquote>
+                                <p>"Заказывала на годовщину — муж в восторге! Упаковка шикарная, всё очень качественно."</p>
+                                <footer>— Анна, Москва</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</main>
+<footer class="footer">
+        <div class="container footer__inner">
+            <p>© <span class="current-year"></span> GiftBox.<span class="developer-name">Зимин Илья Викторович</span></p>
+            <div class="footer__socials">
+                <a href="#" aria-label="VK">VK</a>
+                <a href="#" aria-label="Telegram">TG</a>
+                <a href="#" aria-label="WhatsApp">WA</a>
+            </div>
+            <ul class="footer__links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+            <p class="footer__info">GiftBox — готовые подарки на любой праздник с доставкой по всей России</p>
+        </div>
+    </footer>

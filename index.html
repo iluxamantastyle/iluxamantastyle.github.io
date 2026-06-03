@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GiftBox — Магазин подарочных наборов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Стили для корзины */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .cart-modal.active {
+            display: flex;
+        }
+        .cart-modal__content {
+            background: white;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 24px;
+            position: relative;
+            animation: slideIn 0.3s ease;
+        }
+        .cart-modal__close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 28px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
+        }
+        .cart-modal__close:hover {
+            color: #000;
+        }
+        .cart-items {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            flex-wrap: wrap;
+        }
+        .cart-item-info {
+            flex: 2;
+        }
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .cart-item-price {
+            font-size: 14px;
+            color: #666;
+        }
+        .cart-item-sum {
+            font-size: 14px;
+            color: #4a6a3b;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+        .cart-item-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .cart-qty-btn, .cart-remove-btn {
+            background: #f5f5f5;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+        .cart-qty-btn:hover {
+            background: #e0e0e0;
+        }
+        .cart-remove-btn:hover {
+            background: #ffebee;
+            color: #d32f2f;
+        }
+        .cart-qty {
+            min-width: 30px;
+            text-align: center;
+        }
+        .cart-total {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #eee;
+            text-align: right;
+            font-size: 18px;
+        }
+        
+     
+        .empty-cart-message {
+            text-align: center;
+            color: #999;
+            padding: 30px;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .cart-btn {
+            cursor: pointer;
+        }
+        .cart-count {
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+
+        /* Стили для модального окна подтверждения заказа */
+        .order-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+        }
+        .order-modal.active {
+            display: flex;
+        }
+        .order-modal__content {
+            background: white;
+            border-radius: 16px;
+            max-width: 400px;
+            width: 90%;
+            padding: 24px;
+            text-align: center;
+            animation: slideIn 0.3s ease;
+        }
+      
+        .order-modal__content p {
+            margin: 10px 0;
+        }
+        .order-items-list {
+            text-align: left;
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        .order-items-list li {
+            margin: 5px 0;
+        }
+       
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo">GiftBox</a>
+            
+            <nav class="nav" id="nav">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link active">Главная</a></li>
+                    <li><a href="catalog.html" class="nav__link">Каталог</a></li>
+                    <li><a href="blog.html" class="nav__link">Блог</a></li>
+                    <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__actions">
+                <button class="search-btn" aria-label="Поиск">Поиск</button>
+                <button class="cart-btn" id="cart-btn" aria-label="Корзина">
+                    Корзина <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="burger-btn" id="burger-btn" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main">
+        <!-- Hero блок -->
+        <section class="hero">
+            <div class="container hero__content">
+                <h1>Подарки, которые дарят эмоции</h1>
+                <p class="hero__subtitle">Готовые подарочные наборы на любой праздник с доставкой на дом</p>
+                <a href="catalog.html" class="btn btn--primary">Перейти в каталог</a>
+            </div>
+        </section>
+
+        <!-- Преимущества -->
+        <section class="benefits section">
+            <div class="container">
+                <h2>Почему выбирают нас</h2>
+                <div class="benefits__grid">
+                    <article class="benefit-card">
+                        <span class="benefit-card__icon"></span>
+                        <h3>Упаковка в подарок</h3>
+                        <p>Каждый набор красиво упакован в фирменную коробку с лентой</p>
+                    </article>
+                    <article class="benefit-card">
+                        <span class="benefit-card__icon"></span>
+                        <h3>Быстрая доставка</h3>
+                        <p>Доставим по городу за 2 часа, по России — от 1 дня</p>
+                    </article>
+                    <article class="benefit-card">
+                        <span class="benefit-card__icon"></span>
+                        <h3>Персонализация</h3>
+                        <p>Добавим открытку с вашим поздравлением бесплатно</p>
+                    </article>
+                    <article class="benefit-card">
+                        <span class="benefit-card__icon"></span>
+                        <h3>Эко-материалы</h3>
+                        <p>Используем только безопасную и перерабатываемую упаковку</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Популярные товары -->
+        <section class="popular section">
+            <div class="container">
+                <h2>Популярные наборы</h2>
+                <div class="products-grid">
+                    <!-- Карточка товара 1 -->
+                    <article class="product-card">
+                        <img src="images/romantic.jpg" alt="Набор 'Романтический вечер'" class="product-card__img" loading="lazy">
+                        <div class="product-card__content">
+                            <h3 class="product-card__title">Набор "Романтический вечер"</h3>
+                            <div class="product-card__composition">
+                                <span>Вино</span>
+                                <span>Шоколад</span>
+                                <span>Лепестки</span>
+                            </div>
+                            <p class="product-card__price">1 490 ₽</p>
+                            <div class="product-card__actions">
+                                <a href="product.html" class="btn btn--outline">Подробнее</a>
+                                <button class="btn btn--primary add-to-cart" data-name="Набор 'Романтический вечер'" data-price="1490">В корзину</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Карточка товара 2 -->
+                    <article class="product-card">
+                        <img src="images/ytro.jpg" alt="Набор 'Утро в постель'" class="product-card__img" loading="lazy">
+                        <div class="product-card__content">
+                            <h3 class="product-card__title">Набор "Утро в постель"</h3>
+                            <div class="product-card__composition">
+                                <span>Кофе</span>
+                                <span>Печенье</span>
+                                <span>Открытка</span>
+                            </div>
+                            <p class="product-card__price">890 ₽</p>
+                            <div class="product-card__actions">
+                                <a href="product2.html" class="btn btn--outline">Подробнее</a>
+                                <button class="btn btn--primary add-to-cart" data-name="Набор 'Утро в постель'" data-price="890">В корзину</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Карточка товара 3 -->
+                    <article class="product-card">
+                        <img src="images/biznes.jpg" alt="Корпоративный набор 'Бизнес'" class="product-card__img" loading="lazy">
+                        <div class="product-card__content">
+                            <h3 class="product-card__title">Корпоративный набор "Бизнес"</h3>
+                            <div class="product-card__composition">
+                                <span>Блокнот</span>
+                                <span>Ручка</span>
+                                <span>Чай</span>
+                            </div>
+                            <p class="product-card__price">2 190 ₽</p>
+                            <div class="product-card__actions">
+                                <a href="product3.html" class="btn btn--outline">Подробнее</a>
+                                <button class="btn btn--primary add-to-cart" data-name="Корпоративный набор 'Бизнес'" data-price="2190">В корзину</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="text-center">
+                    <a href="catalog.html" class="btn btn--outline">Смотреть все наборы</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Тематические баннеры -->
+        <section class="banners section">
+            <div class="container">
+                <div class="banners__grid">
+                    <article class="banner banner--feb23">
+                        <h3>23 Февраля</h3>
+                        <p>Подарки для настоящих мужчин</p>
+                        <a href="catalog1.html" class="btn btn--light">Выбрать</a>
+                    </article>
+                    <article class="banner banner--mar8">
+                        <h3>8 Марта</h3>
+                        <p>Нежные наборы для любимых</p>
+                        <a href="catalog2.html" class="btn btn--light">Выбрать</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Рассылка -->
+        <section class="newsletter section">
+            <div class="container">
+                <h2>Получите скидку 10% на первый заказ!</h2>
+                <p>Подпишитесь на рассылку и будьте в курсе новых наборов и акций</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Ваш email" required aria-label="Email для подписки">
+                    <button type="submit" class="btn btn--primary">Подписаться</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <p>© <span class="current-year"></span> GiftBox. <span class="developer-name">Зимин Илья Викторович</span></p>
+            <div class="footer__socials">
+                <a href="#" aria-label="VK">VK</a>
+                <a href="#" aria-label="Telegram">TG</a>
+                <a href="#" aria-label="WhatsApp">WA</a>
+            </div>
+            <ul class="footer__links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+            <p class="footer__info">GiftBox — готовые подарки на любой праздник с доставкой по всей России</p>
+        </div>
+    </footer>
+
+    <!-- Модальное окно корзины -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-modal__content">
+            <button class="cart-modal__close" id="cart-modal-close">&times;</button>
+            <h2>Ваша корзина</h2>
+            <ul id="cart-items" class="cart-items">
+                <li class="empty-cart-message">Корзина пуста</li>
+            </ul>
+            <div class="cart-total">
+                <strong>Итого: <span id="cart-total">0</span> ₽</strong>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">Заказать</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно подтверждения заказа (что куплено) -->
+    <div id="order-modal" class="order-modal">
+        <div class="order-modal__content">
+            <h3> Заказ оформлен!</h3>
+            <p>Спасибо за покупку!</p>
+            <p><strong>Вы купили:</strong></p>
+            <ul id="order-items-list" class="order-items-list"></ul>
+            <p><strong>На сумму: <span id="order-total">0</span> ₽</strong></p>
+            <button class="close-order-btn" id="close-order-btn">Закрыть</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

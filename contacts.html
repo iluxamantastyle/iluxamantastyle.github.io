@@ -1,0 +1,84 @@
+<link rel="stylesheet" href="style.css">
+<main class="main">
+    <div class="container">
+  <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo"> GiftBox</a>
+            
+            <nav class="nav" id="nav">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Главная</a></li>
+                    <li><a href="catalog.html" class="nav__link">Каталог</a></li>
+                    <li><a href="blog.html" class="nav__link">Блог</a></li>
+                    <li><a href="contacts.html" class="nav__link active">Контакты</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__actions">
+                <button class="search-btn" aria-label="Поиск">Поиск</button>
+                <a href="#" class="cart-btn" aria-label="Корзина">
+                    Корзина <span class="cart-count" id="cart-count">0</span>
+                </a>
+                <button class="burger-btn" id="burger-btn" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+        <h1>Контакты</h1>
+        
+        <div class="contacts-layout">
+            <section class="contacts-info">
+                <h2>Свяжитесь с нами</h2>
+                <ul class="contacts-list">
+                    <li> г. Москва, ул. Подарочная, д. 15</li>
+                    <li> <a href="tel:+74951234567">+7 (495) 123-45-67</a></li>
+                    <li> <a href="mailto:hello@giftbox.ru">hello@giftbox.ru</a></li>
+                    <li> Пн-Вс: 9:00–21:00</li>
+                </ul>
+                
+                <div class="map">
+                    <!-- Заглушка карты -->
+                    <img src="images/karta.jpg" alt="Карта проезда" class="map__img">
+                    <!-- Или iframe от ЯнЯекс.Карт -->
+                </div>
+            </section>
+            
+            <section class="contact-form-section">
+                <h2>Напишите нам</h2>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Ваше имя *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary">Отправить</button>
+                </form>
+            </section>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+        <div class="container footer__inner">
+            <p>© <span class="current-year"></span> GiftBox.<span class="developer-name">Зимин Илья Викторович</span></p>
+            <div class="footer__socials">
+                <a href="#" aria-label="VK">VK</a>
+                <a href="#" aria-label="Telegram">TG</a>
+                <a href="#" aria-label="WhatsApp">WA</a>
+            </div>
+            <ul class="footer__links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+            <p class="footer__info">GiftBox — готовые подарки на любой праздник с доставкой по всей России</p>
+        </div>
+    </footer>
